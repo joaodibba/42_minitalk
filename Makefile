@@ -33,7 +33,7 @@ clean:
 	make -C libft clean
 	
 fclean: clean
-	rm -f server client libft/libft.a
+	rm -rf obj server client libft/libft.a
 
 re: fclean all
 
