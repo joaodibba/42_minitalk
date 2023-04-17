@@ -16,5 +16,5 @@ int main(void)
 
 	ft_printf("Process PID: %d\n", (size_t)getpid());
 	pause();
-	kill()
+	kill();
 }
