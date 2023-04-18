@@ -9,10 +9,10 @@
 
 typedef struct s_bits
 {
-	int		is_pid;
-	int		bit_count;
-	pid_t	client_pid;
-	char	current_char;
+	int				is_pid;
+	int				bit_count;
+	int				client_pid;
+	unsigned char	current_char;
 }	t_bits;
 
 void	send_message(pid_t server_pid, char *message);

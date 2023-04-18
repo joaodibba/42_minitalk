@@ -11,8 +11,8 @@ void	encode_and_send_char(pid_t server_pid, int c)
 	int	i;
 
 	ft_printf("the num: %i\n", c);
-	i = 8;
-	while (i >= 0)
+	i = 1;
+	while (i <= 8)
 	{
 		if (c & (1 << i))
 			kill(server_pid, SIGUSR1);
