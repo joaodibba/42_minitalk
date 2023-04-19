@@ -6,7 +6,7 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:08:14 by codespace         #+#    #+#             */
-/*   Updated: 2023/04/15 20:08:55 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/29 19:45:30 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ char	*ft_strchr(const char *str, int c)
 	if (*str == (char)c)
 		return ((char *)str);
 	return (0);
+}
+
+int	ft_strlen(const char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
 
 char	*ft_strrev(char *str)
