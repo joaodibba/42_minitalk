@@ -28,7 +28,7 @@ void	decode_and_print_char(int sig)
 		if (g_process.is_pid)
 			g_process.client_pid |= (1 << g_process.bit_count);
 		else
-			g_process.current_char |= (1 << g_process.bit_count);
+			g_process.current_char |= (1 << (7 - g_process.bit_count)); // invert the bit position
 	}
 	g_process.bit_count++;
 	ft_printf("SIGUSR1: %i | bit_count: %i\n", (sig == SIGUSR1), g_process.bit_count);
@@ -50,6 +50,7 @@ void	decode_and_print_char(int sig)
 		g_process.bit_count = 0;
 	}
 }
+
 
 /* The main function initializes the g_process struct and sets up
  the signal handlers for SIGUSR1 and SIGUSR2.
