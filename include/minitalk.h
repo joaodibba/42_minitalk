@@ -14,10 +14,4 @@ typedef struct s_process {
     char	current_char;
 }	t_process;
 
-void	send_message(pid_t server_pid, char *message);
-void	encode_and_send_char(pid_t server_pid, int c);
-void	decode_and_print_char(int sig);
-void	server_response(int sig);
-void	send_back_response(void);
-
 #endif
