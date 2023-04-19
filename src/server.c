@@ -3,7 +3,7 @@
 
 t_bits	g_process;
 
-void	send_back_responce(void)
+void	send_back_response(void)
 {
 	kill(g_process.client_pid, SIGUSR1);
 	ft_printf("OK\n");
@@ -30,7 +30,7 @@ void	decode_and_print_char(int sig)
 		else
 		{
 			if (!g_process.current_char)
-				send_back_responce();
+				send_back_response();
 			else
 				ft_printf("char: %c | %i\n", g_process.current_char, g_process.current_char);
 			g_process.current_char = 0;

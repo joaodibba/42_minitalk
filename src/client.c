@@ -1,7 +1,7 @@
 
 #include "../include/minitalk.h"
 
-void	server_responce(int sig)
+void	server_response(int sig)
 {
 	ft_printf("message received. sig: %i\n", sig);
 }
@@ -28,7 +28,7 @@ void	send_message(pid_t server_pid, char *message)
 	while (*message)
 		encode_and_send_char(server_pid, *message++);
 	encode_and_send_char(server_pid, *message);
-	ft_printf("Waiting for server responce\n");
+	ft_printf("Waiting for server response\n");
 	pause();
 }
 
@@ -37,15 +37,17 @@ int	main(int argc, char **argv)
 	pid_t	server_pid;
 	pid_t	client_pid;
 
-	client_pid = getpid();
 	if (argc != 3)
 		return (0);
-	ft_printf("Client PID: %d\n", client_pid);
+	client_pid = getpid();
 	server_pid = ft_atoi(argv[1]);
-	ft_printf("Server %d\n", server_pid);
 	if (ft_strncmp(argv[1], ft_itoa(server_pid), ft_strlen(argv[1])))
 		return (0);
-	signal(SIGUSR1, server_responce);
+
+	ft_printf("Client PID: %d\n", client_pid);
+	ft_printf("Server PID %d\n", server_pid);
+
+	signal(SIGUSR1, server_response);
 	encode_and_send_char(server_pid, client_pid);
 	send_message(server_pid, argv[2]);
 	return (0);
