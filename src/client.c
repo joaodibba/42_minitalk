@@ -23,11 +23,17 @@ void	send_message(pid_t server_pid, char *message)
 	encode_and_send_char(server_pid, *message);
 }
 
+void	server_response(int sig)
+{
+	(void)sig;
+	ft_printf("Message received by the Server!\n");
+}
 
 int	main(int argc, char **argv)
 {
 	pid_t	server_pid;
 
+	signal(SIGUSR1, server_response);
 	if (argc != 3)
 		return (0);
 
