@@ -1,7 +1,7 @@
 
 #include "../include/minitalk.h"
 
-void encode_and_send_char(pid_t server_pid, int c)
+void encode_and_send_char(pid_t server_pid,int sleep_time, int c)
 {
     int i;
 
@@ -12,15 +12,21 @@ void encode_and_send_char(pid_t server_pid, int c)
             kill(server_pid, SIGUSR1);
         else
             kill(server_pid, SIGUSR2);
-        usleep(500);
+        usleep(sleep_time);
     }
 }
 
 void	send_message(pid_t server_pid, char *message)
 {
+	int sleep_time;
+
+	if (ft_strlen(message) <= 100)
+		sleep_time = 100;
+	else
+		sleep_time = 500;
 	while (*message)
-		encode_and_send_char(server_pid, *message++);
-	encode_and_send_char(server_pid, *message);
+		encode_and_send_char(server_pid, sleep_time, *message++);
+	encode_and_send_char(server_pid, sleep_time, *message);
 }
 
 void	server_response(int sig)

@@ -21,7 +21,7 @@ void	decode_and_print_char(int sig, siginfo_t *info, void *context)
 			kill(info->si_pid, SIGUSR1);
 			ft_printf("\n");
 			gettimeofday(&end, NULL);
-   	 		double time_taken = (end.tv_sec - start.tv_sec) * 1.0 + (end.tv_usec - start.tv_usec) / 1000000.0;
+   	 		double time_taken = (end.tv_sec - start.tv_sec) * 1.0 + (end.tv_usec - start.tv_usec) / 10.0;
 			printf("Time taken: %f seconds\n", time_taken);
 		}
 		ft_printf("%c", g_process.current_char);
