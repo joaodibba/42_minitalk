@@ -2,19 +2,23 @@
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# include "../libft/libft.h"
+# define SHORT_SLEEP_TIME 100
+# define LONG_SLEEP_TIME 500
 
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <signal.h>
 
 typedef struct s_process
 {
-    pid_t   client_pid;
-    int     is_pid;
-    int		bit_count;
-    char 	current_char;
+	int		bit_count;
+	char	current_char;
 }	t_process;
 
-void	encode_and_send_char(pid_t server_pid, int sleep_time, int c);
+typedef struct s_args
+{
+	pid_t	server_pid;
+	char	*message;
+}	t_args;
 
 #endif
