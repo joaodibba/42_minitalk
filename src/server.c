@@ -16,7 +16,7 @@ void	decode_and_print_char(int sig, siginfo_t *info, void *context)
 	g_process.bit_count++;
 	if (g_process.bit_count == 8)
 	{
-		if (g_process.current_char == 0) 
+		if (g_process.current_char == 0)
 		{
 			kill(info->si_pid, SIGUSR1);
 			ft_printf("\n");
@@ -32,7 +32,7 @@ void	decode_and_print_char(int sig, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	struct sigaction act;
+	struct sigaction	act;
 
 	act.sa_sigaction = decode_and_print_char;
 	act.sa_flags = SA_SIGINFO;
