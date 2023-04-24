@@ -6,7 +6,7 @@
 /*   By: jalves-c < jalves-c@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:36:49 by jalves-c          #+#    #+#             */
-/*   Updated: 2023/04/24 00:06:27 by jalves-c         ###   ########.fr       */
+/*   Updated: 2023/04/24 00:57:49 by jalves-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,5 @@ int			ft_printfn(int n);
 int			ft_printfun(unsigned int n);
 int			ft_printfx(unsigned long long n, char *base);
 int			ft_printfp(unsigned long long n);
-
 
 #endif

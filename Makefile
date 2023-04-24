@@ -6,7 +6,7 @@
 #    By: jalves-c < jalves-c@student.42lisboa.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 00:48:36 by jalves-c          #+#    #+#              #
-#    Updated: 2023/04/24 00:51:31 by jalves-c         ###   ########.fr        #
+#    Updated: 2023/04/24 01:13:13 by jalves-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ FLAGS = -Wall -Wextra -Werror
 SRC = src/server.c src/client.c
 OBJ = $(patsubst src/%.c,obj/%.o,$(SRC))
 
-all: obj server client nothing
+all: obj server client 
 
-bonus: obj server client nothing
+bonus: obj server client
 
 server: obj/server.o libft
 	$(CC) -o $@ $< -Llibft -lft
@@ -43,8 +43,12 @@ clean:
 	
 fclean: clean
 	@rm -rf obj server client libft/libft.a
-	@ echo "\033[0;32mExecutables successfully cleaned!\033[0m"
+	@echo "\033[0;32mExecutables successfully cleaned!\033[0m"
 
 re: fclean all
 
-.PHONY: all bonus libft clean fclean re obj nothing
+norm :
+	@norminette
+	@echo "\033[0;32mNorminette: OK!\033[0m"
+
+.PHONY: all bonus libft clean fclean re obj
